@@ -1,0 +1,2 @@
+require("neofri")
+print("Hello")
