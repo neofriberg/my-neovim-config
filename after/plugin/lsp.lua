@@ -40,6 +40,7 @@ local cmp = require('cmp')
 cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
+    {name = 'luasnip'}
   },
   snippet = {
     expand = function(args)
@@ -47,14 +48,27 @@ cmp.setup({
       vim.snippet.expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert({}),
+  mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+}),
 })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here 
   -- with the ones you want to install
-  ensure_installed = {'lua_ls', 'rust_analyzer'},
+  ensure_installed = {
+	  'lua_ls', 
+	  'rust_analyzer',
+	  'basedpyright',
+	  --'r_language_server',
+	  'jdtls', 
+	  --'ast_grep'
+  },
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})

@@ -1,2 +1,1 @@
 require("neofri")
-print("Hello")
