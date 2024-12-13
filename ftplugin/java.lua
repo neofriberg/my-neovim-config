@@ -4,4 +4,5 @@ local config = {
 }
 require('jdtls').start_or_attach(config)
 
+vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:!javac % && java %:r<CR>', { noremap = true, silent = true })
 --~/.local/share/nvim/mason/bin
