@@ -44,5 +44,13 @@ return require('packer').startup(function(use)
     use('mfussenegger/nvim-dap') 
     use('jay-babu/mason-nvim-dap.nvim')
     use('mfussenegger/nvim-lint')
+
+    --Autopairs
+    use {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    }
 end)
 
