@@ -8,3 +8,12 @@ vim.keymap.set("n", "j", "h")
 vim.keymap.set("n", "k", "j")
 vim.keymap.set("n", "l", "k")
 vim.keymap.set("n", "ö", "l")
+
+vim.keymap.set("i", "(", "()<left>")
+vim.keymap.set("i", "{", "{<enter><enter>}<up><tab>")
+
+vim.keymap.set("i", "[", "[]<left>")
+vim.keymap.set("i", "\"", "\"\"<left>")
+vim.keymap.set("i", "jj", "<Esc>")
+
+
